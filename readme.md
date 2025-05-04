@@ -126,6 +126,3 @@ Our Docker images are available on DockerHub:
 
 ---
 
-## 📞 CONTACT
-
-For questions or support, please open an issue on our GitHub repository.
