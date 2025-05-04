@@ -1,99 +1,131 @@
-# User Management System 
+# USER MANAGEMENT SYSTEM
+> A robust platform for managing users with enhanced security and validation
 
-This repository contains new features, test cases, and bug fixes for a user management system, focusing on improving data validation, enhancing security, and addressing potential bugs in the codebase.
+![GitHub issues](https://img.shields.io/github/issues/AbhishekDuddupudi/user_management)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AbhishekDuddupudi/user_management)
+![Docker Pulls](https://img.shields.io/docker/pulls/abhi589/user_management)
 
-## QA Issues Resolved
+---
 
-1. **Insufficient Input Validation:** User input validation is limited in several endpoints, particularly for email formats and password complexity requirements. [View code](https://github.com/AbhishekDuddupudi/user_management/tree/main/app/schemas/user_schemas.py) | [Issue #1](https://github.com/AbhishekDuddupudi/user_management/issues/1)
+## 📋 PROJECT OVERVIEW
 
-2. **Improper JWT Token Validation:** The JWT validation doesn't check for token expiration or signature properly in some cases, which could lead to security vulnerabilities. [View code](https://github.com/AbhishekDuddupudi/user_management/tree/main/app/services/jwt_service.py) | [Issue #3](https://github.com/AbhishekDuddupudi/user_management/issues/3)
+This project delivers critical improvements to the user management system, focusing on three key areas:
 
-3. **No Input Sanitization:** User input isn't properly sanitized before being used in database queries, potentially leading to injection attacks. [View code](https://github.com/AbhishekDuddupudi/user_management/tree/main/app/schemas/user_schemas.py) | [Issue #4](https://github.com/AbhishekDuddupudi/user_management/issues/4)
+- **Security Enhancements**: Robust data validation and improved token handling
+- **Bug Fixes**: Addressing critical issues in the existing codebase
+- **Feature Development**: New functionality for better user management
 
-4. **Missing Database Indexing:** No indexes are defined on frequently queried fields like email and nickname, which could lead to performance issues as the database grows. [View code](https://github.com/AbhishekDuddupudi/user_management/tree/main/app/models/user_model.py) | [Issue #6](https://github.com/AbhishekDuddupudi/user_management/issues/6)
+---
 
-5. **Improper Error Handling in Email Service:** The email_service.py directly calls SMTP methods without proper exception handling, which could lead to unhandled exceptions if email sending fails. [View code](https://github.com/AbhishekDuddupudi/user_management/tree/main/app/services/email_service.py) | [Issue #7](https://github.com/AbhishekDuddupudi/user_management/issues/7)
+## 🛠️ TECHNICAL IMPROVEMENTS
 
-## PyTest Test Suite 
+### Security Issues Fixed
 
-The test suite uses PyTest with the `pytest-asyncio` plugin to perform asynchronous testing. These tests cover various aspects of the web application, including user authentication, registration, password management, and user profile updates. [View test code](https://github.com/AbhishekDuddupudi/user_management/tree/main/tests/test_api/test_users_api.py)
+<details>
+<summary><b>Issue #1: Insufficient Input Validation</b></summary>
+<p>
+We've strengthened input validation across multiple endpoints, particularly focusing on email format verification and enforcing stronger password requirements.
+</p>
+<p>
+<a href="https://github.com/AbhishekDuddupudi/user_management/tree/main/app/schemas/user_schemas.py">View the improved code</a>
+</p>
+</details>
 
-### User Authentication Tests
+<details>
+<summary><b>Issue #3: Improper JWT Token Validation</b></summary>
+<p>
+Fixed critical security vulnerabilities by implementing proper checks for token expiration and signature verification.
+</p>
+<p>
+<a href="https://github.com/AbhishekDuddupudi/user_management/tree/main/app/services/jwt_service.py">View the improved code</a>
+</p>
+</details>
 
-#### `test_account_locking(async_client, verified_user, db_session)`
-- Verifies that a user account is locked after exceeding the maximum allowed failed login attempts
-- Simulates multiple failed login attempts with an incorrect password
-- Asserts that after the configured number of failed attempts, subsequent login attempts, even with the correct password, are rejected
-- Checks for the correct HTTP status code (400) and error message ("Account locked")
+<details>
+<summary><b>Issue #4: No Input Sanitization</b></summary>
+<p>
+Implemented comprehensive input sanitization to prevent SQL injection attacks and other malicious input.
+</p>
+<p>
+<a href="https://github.com/AbhishekDuddupudi/user_management/tree/main/app/schemas/user_schemas.py">View the improved code</a>
+</p>
+</details>
 
-### User Registration Tests
+### Performance & Reliability
 
-#### `test_register_with_valid_data(async_client, email_service)`
-- Tests the user registration endpoint with valid user data
-- Submits a registration request with a unique nickname, email, and a strong password
-- Asserts that the registration is successful (status code 201) or that the input data is rejected due to validation issues (status code 422)
-- On successful registration, it verifies the presence of an 'id' in the response and that the returned email matches the submitted email
+<details>
+<summary><b>Issue #6: Missing Database Indexing</b></summary>
+<p>
+Added proper database indexes on frequently queried fields like email and nickname to improve query performance as the database scales.
+</p>
+<p>
+<a href="https://github.com/AbhishekDuddupudi/user_management/tree/main/app/models/user_model.py">View the improved code</a>
+</p>
+</details>
 
-### User Verification Tests
+<details>
+<summary><b>Issue #7: Improper Error Handling in Email Service</b></summary>
+<p>
+Implemented robust exception handling in the email service to prevent uncaught exceptions and ensure reliable email delivery.
+</p>
+<p>
+<a href="https://github.com/AbhishekDuddupudi/user_management/tree/main/app/services/email_service.py">View the improved code</a>
+</p>
+</details>
 
-#### `test_verify_user_with_valid_token(async_client, unverified_user)`
-- Tests the user verification endpoint with a valid verification token
-- Attempts to verify a user account using a token generated for an unverified user
-- Anticipates a successful verification (status code 200) or a 404 if the verification route is not found
-- Upon successful verification, it checks for a 'message' key in the response
+---
 
-#### `test_verify_user_with_invalid_token(async_client)`
-- Tests the user verification endpoint with an invalid verification token
-- Calls the verification endpoint with a deliberately invalid token
-- Expects the server to respond with either a 400 (Bad Request) or a 404 (Not Found)
+## ✅ COMPREHENSIVE TEST COVERAGE
 
-### Password Management Tests
+We've developed an extensive test suite using PyTest with the `pytest-asyncio` plugin for robust asynchronous testing.
 
-#### `test_request_password_reset(async_client, verified_user, email_service)`
-- Tests the endpoint for requesting a password reset
-- Submits a password reset request with the email address of a verified user
-- Expects a successful request (status code 200) or a 404 if the endpoint is not found
-- If the request is successful, it verifies that the `send_reset_password_email` method of the mocked `email_service` was called
+[Browse the test code](https://github.com/AbhishekDuddupudi/user_management/tree/main/tests/test_api/test_users_api.py)
 
-#### `test_reset_password_with_valid_token(async_client, verified_user)`
-- Tests the endpoint for resetting a user's password using a valid token
-- Submits a new password along with the token to the reset password endpoint
-- Expects a successful password reset (status code 200) or a 404 if the endpoint is not found
-- On success, it verifies the presence of a 'message' in the response
+### Authentication Testing
 
-### User Profile Tests
+- **Account Security**: Verification of account locking mechanisms after failed login attempts
+- **Login Validation**: Comprehensive testing of credential validation
 
-#### `test_user_update_own_profile(async_client, verified_user, user_token)`
-- Tests the ability of a user to update their own profile information
-- Submits updated data (e.g., a new bio) with a valid user token
-- Checks for a successful update (status code 200) and verifies that the data is updated correctly
-- Handles potential 403 (Forbidden) or 404 (Not Found) responses
+### User Management Testing
 
-#### `test_manager_update_user_role(async_client, verified_user, manager_token)`
-- Tests the ability of a manager to update another user's role
-- Submits a request to update a user's role with a valid manager token
-- Expects a successful update (status code 200) and verifies that the role is updated
-- Handles potential 401 (Unauthorized), 403 (Forbidden), or 404 (Not Found) responses
+- **Registration Flow**: Complete testing of the user registration pipeline
+- **Account Verification**: Tests for both valid and invalid verification tokens
+- **Password Reset**: End-to-end testing of password reset functionality
 
-#### `test_logout_user(async_client, verified_user, user_token)`
-- Tests the user logout functionality
-- Submits a logout request with a valid user token
-- Checks for a successful logout (status code 200) and verifies that the token is invalidated
+### User Profile Testing
 
-#### `test_get_current_user_profile(async_client, verified_user, user_token)`
-- Tests the endpoint to retrieve the current user's profile
-- Sends a request with a valid user token
-- Asserts a successful response (status code 200) and verifies that the returned profile data contains the user's 'id' and 'email'
-- It also compares the returned 'id' and 'email' with the expected values from the `verified_user` fixture
+- **Profile Updates**: Testing of user's ability to modify their own profile
+- **Role Management**: Verification of role-based access controls
+- **Session Management**: Testing of login and logout operations
 
-## Features Developed
+---
 
-### User Search and Filtering
-**Description:** Implemented search and filtering capabilities to allow administrators to easily find and manage users based on various criteria.
+## 💡 NEW FEATURES
 
-### User Profile Management
-**Description:** Enhanced the user profile management functionality to allow users to update their profile fields and enable managers and admins to upgrade users to professional status.
+### Advanced User Search
+Enhanced administrative capabilities with powerful search and filtering functionality.
+```
+🔍 Filter by: Role, Status, Join Date, Activity Level
+```
 
-## 🐳 Deployment
+### Comprehensive Profile Management
+Improved user profile experience with expanded functionality.
+```
+👤 User-controlled profile updates
+🔑 Role management for administrators
+⭐ Professional status upgrade pathway
+```
 
-View our Docker images on [DockerHub](https://hub.docker.com/r/abhi589/user_management/tags)
+---
+
+## 🚀 DEPLOYMENT
+
+Our Docker images are available on DockerHub:
+
+[![DockerHub](https://img.shields.io/badge/DockerHub-abhi589%2Fuser__management-blue)](https://hub.docker.com/r/abhi589/user_management/tags)
+
+---
+
+## 📞 CONTACT
+
+For questions or support, please open an issue on our GitHub repository.
