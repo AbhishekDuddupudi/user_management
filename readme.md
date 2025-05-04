@@ -3,7 +3,7 @@
 
 ![GitHub issues](https://img.shields.io/github/issues/AbhishekDuddupudi/user_management)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/AbhishekDuddupudi/user_management)
-![Docker Pulls](https://img.shields.io/docker/pulls/abhi589/user_management)
+
 
 ---
 
