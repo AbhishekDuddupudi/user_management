@@ -22,27 +22,7 @@ This project delivers critical improvements to the user management system, focus
 ### Security Issues Fixed
 
 <details>
-<summary><b>Issue #1: Insufficient Input Validation</b></summary>
-<p>
-We've strengthened input validation across multiple endpoints, particularly focusing on email format verification and enforcing stronger password requirements.
-</p>
-<p>
-<a href="https://github.com/AbhishekDuddupudi/user_management/tree/main/app/schemas/user_schemas.py">View the improved code</a>
-</p>
-</details>
-
-<details>
-<summary><b>Issue #3: Improper JWT Token Validation</b></summary>
-<p>
-Fixed critical security vulnerabilities by implementing proper checks for token expiration and signature verification.
-</p>
-<p>
-<a href="https://github.com/AbhishekDuddupudi/user_management/tree/main/app/services/jwt_service.py">View the improved code</a>
-</p>
-</details>
-
-<details>
-<summary><b>Issue #4: No Input Sanitization</b></summary>
+<summary><b>Issue #3: No Input Sanitization</b></summary>
 <p>
 Implemented comprehensive input sanitization to prevent SQL injection attacks and other malicious input.
 </p>
@@ -51,10 +31,32 @@ Implemented comprehensive input sanitization to prevent SQL injection attacks an
 </p>
 </details>
 
+<details>
+<summary><b>Issue #4: Improper JWT Token Validation</b></summary>
+<p>
+Fixed critical security vulnerabilities by implementing proper checks for token expiration and signature verification.
+</p>
+<p>
+<a href="https://github.com/AbhishekDuddupudi/user_management/tree/main/app/services/jwt_service.py">View the improved code</a>
+</p>
+</details>
+
+
+<details>
+<summary><b>Issue #5: Insufficient Input Validation</b></summary>
+<p>
+We've strengthened input validation across multiple endpoints, particularly focusing on email format verification and enforcing stronger password requirements.
+</p>
+<p>
+<a href="https://github.com/AbhishekDuddupudi/user_management/tree/main/app/schemas/user_schemas.py">View the improved code</a>
+</p>
+</details>
+
+
 ### Performance & Reliability
 
 <details>
-<summary><b>Issue #6: Missing Database Indexing</b></summary>
+<summary><b>Issue #1: Missing Database Indexing</b></summary>
 <p>
 Added proper database indexes on frequently queried fields like email and nickname to improve query performance as the database scales.
 </p>
@@ -64,7 +66,7 @@ Added proper database indexes on frequently queried fields like email and nickna
 </details>
 
 <details>
-<summary><b>Issue #7: Improper Error Handling in Email Service</b></summary>
+<summary><b>Issue #2: Improper Error Handling in Email Service</b></summary>
 <p>
 Implemented robust exception handling in the email service to prevent uncaught exceptions and ensure reliable email delivery.
 </p>
