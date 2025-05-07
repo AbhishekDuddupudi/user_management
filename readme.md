@@ -4,7 +4,6 @@
 ![GitHub issues](https://img.shields.io/github/issues/AbhishekDuddupudi/user_management)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/AbhishekDuddupudi/user_management)
 
-
 ---
 
 ## 📋 PROJECT OVERVIEW
@@ -22,7 +21,7 @@ This project delivers critical improvements to the user management system, focus
 ### Security Issues Fixed
 
 <details>
-<summary><b>Issue #3: No Input Sanitization</b></summary>
+<summary><b><a href="https://github.com/AbhishekDuddupudi/user_management/issues/3">Issue #3: No Input Sanitization</a></b></summary>
 <p>
 Implemented comprehensive input sanitization to prevent SQL injection attacks and other malicious input.
 </p>
@@ -32,7 +31,7 @@ Implemented comprehensive input sanitization to prevent SQL injection attacks an
 </details>
 
 <details>
-<summary><b>Issue #4: Improper JWT Token Validation</b></summary>
+<summary><b><a href="https://github.com/AbhishekDuddupudi/user_management/issues/4">Issue #4: Improper JWT Token Validation</a></b></summary>
 <p>
 Fixed critical security vulnerabilities by implementing proper checks for token expiration and signature verification.
 </p>
@@ -41,9 +40,8 @@ Fixed critical security vulnerabilities by implementing proper checks for token 
 </p>
 </details>
 
-
 <details>
-<summary><b>Issue #5: Insufficient Input Validation</b></summary>
+<summary><b><a href="https://github.com/AbhishekDuddupudi/user_management/issues/5">Issue #5: Insufficient Input Validation</a></b></summary>
 <p>
 We've strengthened input validation across multiple endpoints, particularly focusing on email format verification and enforcing stronger password requirements.
 </p>
@@ -52,11 +50,10 @@ We've strengthened input validation across multiple endpoints, particularly focu
 </p>
 </details>
 
-
 ### Performance & Reliability
 
 <details>
-<summary><b>Issue #1: Missing Database Indexing</b></summary>
+<summary><b><a href="https://github.com/AbhishekDuddupudi/user_management/issues/1">Issue #1: Missing Database Indexing</a></b></summary>
 <p>
 Added proper database indexes on frequently queried fields like email and nickname to improve query performance as the database scales.
 </p>
@@ -66,7 +63,7 @@ Added proper database indexes on frequently queried fields like email and nickna
 </details>
 
 <details>
-<summary><b>Issue #2: Improper Error Handling in Email Service</b></summary>
+<summary><b><a href="https://github.com/AbhishekDuddupudi/user_management/issues/2">Issue #2: Improper Error Handling in Email Service</a></b></summary>
 <p>
 Implemented robust exception handling in the email service to prevent uncaught exceptions and ensure reliable email delivery.
 </p>
@@ -104,12 +101,12 @@ We've developed an extensive test suite using PyTest with the `pytest-asyncio` p
 
 ## 💡 NEW FEATURES
 
-### Advanced User Search
+### Advanced User Search 
 Enhanced administrative capabilities with powerful search and filtering functionality.
 ```
 🔍 Filter by: Role, Status, Join Date, Activity Level
 ```
-
+[Browse the feature code](https://github.com/AbhishekDuddupudi/user_management/commit/a73bdd5b7234d239a7fb72dd6b06cdce649ec180)
 ### Comprehensive Profile Management
 Improved user profile experience with expanded functionality.
 ```
@@ -117,7 +114,7 @@ Improved user profile experience with expanded functionality.
 🔑 Role management for administrators
 ⭐ Professional status upgrade pathway
 ```
-
+[Browse the feature code](https://github.com/AbhishekDuddupudi/user_management/commit/6016d84e9b30bc8806592d4c0b73470760a59903)
 ---
 
 ## 🚀 DEPLOYMENT
@@ -127,4 +124,3 @@ Our Docker images are available on DockerHub:
 [![DockerHub](https://img.shields.io/badge/DockerHub-abhi589%2Fuser__management-blue)](https://hub.docker.com/r/abhi589/user_management/tags)
 
 ---
-
