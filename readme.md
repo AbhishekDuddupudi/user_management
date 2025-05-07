@@ -101,20 +101,19 @@ We've developed an extensive test suite using PyTest with the `pytest-asyncio` p
 
 ## 💡 NEW FEATURES
 
-### Advanced User Search 
+### [Advanced User Search](https://github.com/AbhishekDuddupudi/user_management/commit/a73bdd5b7234d239a7fb72dd6b06cdce649ec180) 
 Enhanced administrative capabilities with powerful search and filtering functionality.
 ```
 🔍 Filter by: Role, Status, Join Date, Activity Level
 ```
-[Browse the feature code](https://github.com/AbhishekDuddupudi/user_management/commit/a73bdd5b7234d239a7fb72dd6b06cdce649ec180)
-### Comprehensive Profile Management
+
+### [Comprehensive Profile Management](https://github.com/AbhishekDuddupudi/user_management/commit/6016d84e9b30bc8806592d4c0b73470760a59903)
 Improved user profile experience with expanded functionality.
 ```
 👤 User-controlled profile updates
 🔑 Role management for administrators
 ⭐ Professional status upgrade pathway
 ```
-[Browse the feature code](https://github.com/AbhishekDuddupudi/user_management/commit/6016d84e9b30bc8806592d4c0b73470760a59903)
 ---
 
 ## 🚀 DEPLOYMENT
